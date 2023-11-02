@@ -10,14 +10,24 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 
 ## To Do List To Do List
   - ✅ Create database
-  - Component to GET tasks (list)
-  - Component to POST new task (form?)
-  - Component to DELETE specific task (item)
-  - Component to PUT task and mark complete (?)
+  - ✅ GET tasks in App.jsx (list)
+  - ✅ Component to POST new task (form?)
+  - ✅ Component to DELETE specific task (item)
+  - ✅ Component to PUT task and mark complete (?)
   - ✅ Set up server side on the router
+  - add input to select due date (not time!)
+  - tab per day, show day's list when clicked? separate list for diff days
+  - allow different colors for organization
+  - cute theme!!!
+  - make list container scrollable
+  - give each task a box shadow in its color, with buttons on the far right
+  - option to add notes to task?
   
   
   Database requirements:
   - task text (varchar)
   - complete (boolean)
-  - due date? (stretch) (sort by?)
+  - due date? (stretch) (sort by?) (allow put to update!)
+  - color (with put to update!)
+
+
