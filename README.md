@@ -1,28 +1,32 @@
 # Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+To Do List
 
 ## Description
+npm install @mui/material @emotion/react @emotion/styled
+npm install react- ?????
+npm install react-time-picker ?
+npm install date-fns --save
+npm install dayjs
+npm install react-datetime-picker ?
 
-Your project description goes here. What problem did you solve? How did you solve it?
+# Instructions
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+Create a database named `weekend-to-do-app` and use the query in the `database.sql` file to populate it.
 
 ## To Do List To Do List
   - ✅ Create database
-  - ✅ GET tasks in App.jsx (list)
-  - ✅ Component to POST new task (form?)
-  - ✅ Component to DELETE specific task (item)
-  - ✅ Component to PUT task and mark complete (?)
-  - ✅ Set up server side on the router
-  - add input to select due date (not time!)
-  - tab per day, show day's list when clicked? separate list for diff days
-  - allow different colors for organization
-  - cute theme!!!
-  - make list container scrollable
-  - give each task a box shadow in its color, with buttons on the far right
-  - option to add notes to task?
-  
+  - ✅ GET tasks in App.jsx
+  - ✅ Component to POST new task (TaskForm)
+  - ✅ Component to DELETE specific task (TaskItem)
+  - ✅ Component to PUT task and mark complete (TaskItem)
+  - ✅ Set up server side on the router(s)
+## Stretch
+  - ✅ Add input to select due date
+  - ✅ Input to allow different colors for organization
+  - ✅ Add styling
+  - ✅ Make the list container scrollable
+  - Add ability to add notes to task
+  - Add ability to change color
   
   Database requirements:
   - task text (varchar)

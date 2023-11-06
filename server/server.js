@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const todoRouter = require('./routes/todo.router.js');
+const notesRouter = require('./routes/notes.router.js');
 const PORT = process.env.PORT || 5001;
 
 /** ---------- MIDDLEWARE ---------- **/
@@ -9,6 +10,7 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 app.use('/todo', todoRouter);
+app.use('/notes', notesRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT,  () => {
