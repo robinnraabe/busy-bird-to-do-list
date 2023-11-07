@@ -1,17 +1,18 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { format } from "date-fns";
-import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import StarIcon from '@mui/icons-material/Star';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import EditIcon from '@mui/icons-material/Edit';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 import Tooltip from '@mui/material/Tooltip';
 
 function TaskItem(props) {
@@ -46,9 +47,12 @@ function TaskItem(props) {
     }
     const toggleEdit = () => {
         console.log('Editing', props.task.task);
-        axios.put(`/notes/${props.task.id}`)
+        console.log(props.task.notes_status);
+        console.log("props.task.notes:", props.task.notes);
+        console.log("notes:", notes);
+        axios.put(`/notesStatus/${props.task.id}`)
             .then((response) => {
-                console.log('Successfully updated notes on', props.task.task);
+                console.log('Toggled notes on', props.task.task);
                 props.getTasks();
             })
             .catch((error) => {
@@ -56,18 +60,27 @@ function TaskItem(props) {
                 alert('Something went wrong with the second axios PUT');
             })
     }
-    const editNotes = () => {
-        console.log(props.task.notes);
-        axios.put(`/notes`)
+    const editNotes = (event) => {
+        event.preventDefault();
+        toggleEdit();
+        console.log("props.task.notes:", props.task.notes);
+        console.log("notes:", notes);
 
-    }
+        axios.put(`/notes/${props.task.id}`, {notes: notes})
+            .then((response) => {
+                console.log('Successfully updated notes on', props.task.task);
+                props.getTasks();
+            })
+            .catch((error) => {
+                console.log('Error in the third axios PUT:', error);
+                alert('Something went wrong with the third axios PUT');
+            })
+    }        
 
     return (
-        // className is the Reaact version of class
-        // md={4} will fill 4 columns on md/l screens PER ITEM
-        // xs={12} will make 1 item fill all 12 columns on small screens
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12}>
             <Card sx={{ 
+                marginTop: '10px',
                 display: 'flex', 
                 flexDirection: 'row', 
                 borderRadius: '0px', 
@@ -76,7 +89,7 @@ function TaskItem(props) {
                 outlineColor: `${props.task.color}`, 
                 boxShadow: `-10px 10px ${props.task.color}` }} 
             >
-                <CardContent className={props.task.status ? 'complete' : 'incomplete'}>
+                <CardContent sx={{ width: '30%' }}>
                     {/*Main content goes here*/}
                     <Typography variant="h5">
                         {props.task.task}
@@ -85,11 +98,33 @@ function TaskItem(props) {
                         by {formattedDate}
                     </Typography>
                 </CardContent>
-                <CardContent sx={{ marginLeft: 'auto' }}>
-                    Notes: {notes}
+    {/* INVESTIGATE VALUE OF FIELD? AND NOTES */}
+                <CardContent sx={{ width: '35%' }}>
+                    {props.task.notes_status ? (
+                        // if true
+                        <form onSubmit={editNotes}>
+                            <TextField 
+                                multiline
+                                type="text" 
+                                label="notes"
+                                defaultValue={props.task.notes}
+                                helperText="280 character limit"
+                                onChange={(e) => setNotes(e.target.value)}
+                            />
+                            <Tooltip title="Save note">
+                                <IconButton type="submit">
+                                    <AddToPhotosIcon sx={{fontSize: '20px', color:'orange'}} />
+                                </IconButton>
+                            </Tooltip>
+                        </form> 
+                    ) : (
+                        // if false
+                        <div className="note-format">
+                            {props.task.notes}
+                        </div>
+                    )}
                 </CardContent>
                 <CardActions sx={{padding: '10px', marginLeft: 'auto'}}>
-                    {/*Buttons go here*/}
                     {/* Conditional rendering */
                         props.task.status ? (
                             // if true
@@ -109,29 +144,14 @@ function TaskItem(props) {
                     }
                     <Tooltip title="Remove task">
                         <IconButton onClick={deleteTask}>
-                            <RemoveCircleOutlineIcon sx={{fontSize: '40px', color:'grey'}} /> 
+                            <RemoveCircleIcon sx={{fontSize: '40px', color:'rgb(254, 133, 148)'}} /> 
                         </IconButton >
                     </Tooltip>
-                    <Tooltip title="Edit task">
-                        <IconButton onClick={toggleEdit}>
-                            {/* Conditional rendering */
-                                props.task.notes_status ? (
-                                    // if false
-                                    <form onSubmit={editNotes}>
-                                        Add note: <input required 
-                                            type="text" 
-                                            value={notes} 
-                                            onChange={(e) => setNotes(e.target.value)} 
-                                            placeholder="note"
-                                        />
-                                    </form>
-                                ) : (
-                                    // if true
-                                    <EditIcon sx={{fontSize: '40px', color:'grey'}} />
-                                    )
-                            }
-                        </IconButton>
-                    </Tooltip>
+                    <IconButton onClick={toggleEdit}>
+                        <Tooltip title="Edit note">
+                            <EditIcon sx={{fontSize: '40px', color:'grey'}} />   
+                        </Tooltip>
+                    </IconButton>
                 </CardActions>
             </Card>
         </Grid>

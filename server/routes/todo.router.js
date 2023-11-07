@@ -4,7 +4,7 @@ const pool = require('../modules/pool.js');
 
 // GET
 router.get('/', (req, res) => {
-    const queryText = `SELECT * FROM "todo" ORDER BY "status", "due_date" ASC, "color";`;
+    const queryText = `SELECT * FROM "todo" ORDER BY "status", "due_date" ASC, "color" ASC;`;
     pool.query(queryText)
         .then((result) => {
             console.log('GET from server');
@@ -20,7 +20,11 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const task = req.body;
     console.log(req.body);
-    const queryText = `
+    let queryText;
+    if (task.date == '') {
+        task.date = 'NOW()';
+    }
+    queryText = `
         INSERT INTO "todo" ("task", "due_date", "color", "status")
         VALUES ($1, $2, $3, false);
     `;

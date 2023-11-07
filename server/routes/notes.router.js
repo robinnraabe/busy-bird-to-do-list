@@ -4,18 +4,17 @@ const pool = require('../modules/pool.js');
 
 //PUT to add notes
 router.put('/:id', (req, res) => {
-    const queryText = `UPDATE "todo" SET "notes_status" = NOT "notes_status" WHERE "id" = $1;`;
-    console.log(req.body);
-    pool.query(queryText, [req.params.id, req.body.notes_status])
+    console.log("notes router req.body:", req.body, req.params);
+    const queryText = `UPDATE "todo" SET "notes" = $2 WHERE "id" = $1;`;
+    pool.query(queryText, [req.params.id, req.body.notes])
         .then((result) => {
+            console.log('Successfully updated note');
             res.sendStatus(200);
         })
         .catch((error) => {
-            console.log('Error in server PUT', error);
+            console.log('Error in editNotes on notes router:', error);
             res.sendStatus(500);
         });
 })
 
 module.exports = router;
-
-//const queryText = `UPDATE "todo" SET "notes" = $2 WHERE "id" = $1;`;

@@ -22,10 +22,17 @@ h1, h4 {
     text-align: center;
 }
 
+.note-format {
+    margin-top: 10px;
+    color: grey;
+    overflow-wrap: anywhere;
+  }
+
 .container {
     background-image: url('../../../public/images/birdbg.jpeg');
     background-size: 2.5cm;
     background-repeat: repeat;
+    height: 100vh;
 }
 
 .internal {

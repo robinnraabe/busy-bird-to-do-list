@@ -70,20 +70,20 @@ function sendTask(props) {
                             exclusive='true'
                             onChange={chooseColor}
                         >
-                            <ToggleButton value="rgb(37, 137, 213)" key="blue">
-                                <SquareIcon sx={{ color: "rgb(37, 137, 213)" }} />
+                            <ToggleButton value="rgb(160, 129, 242)" key="purple">
+                                <SquareIcon sx={{ color: "rgb(160, 129, 242)" }} />
                             </ToggleButton>,
-                            <ToggleButton value="rgb(93, 213, 37)" key="green">
-                                <SquareIcon sx={{ color: "rgb(93, 213, 37)" }} />
+                            <ToggleButton value="rgb(254, 133, 148)" key="pink">
+                                <SquareIcon sx={{ color: "rgb(254, 133, 148)" }} />
                             </ToggleButton>,
                             <ToggleButton value="rgb(255, 211, 35)" key="yellow">
                                 <SquareIcon sx={{ color: "rgb(255, 211, 35)" }} />
                             </ToggleButton>,
-                            <ToggleButton value="rgb(254, 103, 148)" key="pink">
-                                <SquareIcon sx={{ color: "rgb(254, 103, 148)" }} />
-                            </ToggleButton>,
-                            <ToggleButton value="rgb(160, 109, 242)" key="purple">
-                                <SquareIcon sx={{ color: "rgb(160, 109, 242)" }} />
+                            <ToggleButton value="rgb(36, 220, 37)" key="green">
+                                <SquareIcon sx={{ color: "rgb(36, 220, 37)" }} />
+                            </ToggleButton>
+                            <ToggleButton value="rgb(37, 180, 255)" key="blue">
+                                <SquareIcon sx={{ color: "rgb(37, 180, 255)" }} />
                             </ToggleButton>,
                         </ToggleButtonGroup>
                     </Tooltip>

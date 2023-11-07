@@ -22,10 +22,10 @@ Create a database named `weekend-to-do-app` and use the query in the `database.s
   - ✅ Set up server side on the router(s)
 ## Stretch
   - ✅ Add input to select due date
-  - ✅ Input to allow different colors for organization
-  - ✅ Add styling
+  - ✅ Add input to allow different colors for organization
+  - ✅ Add styling (background, task colors, buttons)
   - ✅ Make the list container scrollable
-  - Add ability to add notes to task
+  - ✅ Add ability to add notes to task
   - Add ability to change color
   
   Database requirements:
