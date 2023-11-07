@@ -14,7 +14,7 @@ import Stack from '@mui/material/Stack';
 function sendTask(props) {
     const [task, setTask] = useState('');
     const [date, setDate] = useState('');
-    const [color, setColor] = useState('');
+    const [color, setColor] = useState('rgb(37, 180, 255)');
 
     const addTask = (event) => {
         event.preventDefault();

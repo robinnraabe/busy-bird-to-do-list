@@ -142,14 +142,14 @@ function TaskItem(props) {
                             </Tooltip>
                         )
                     }
-                    <Tooltip title="Remove task">
+                    <Tooltip title="Delete task">
                         <IconButton onClick={deleteTask}>
                             <RemoveCircleIcon sx={{fontSize: '40px', color:'rgb(254, 133, 148)'}} /> 
                         </IconButton >
                     </Tooltip>
                     <IconButton onClick={toggleEdit}>
                         <Tooltip title="Edit note">
-                            <EditIcon sx={{fontSize: '40px', color:'grey'}} />   
+                            <EditIcon sx={{fontSize: '40px', color:'rgb(133, 133, 133)'}} />   
                         </Tooltip>
                     </IconButton>
                 </CardActions>
