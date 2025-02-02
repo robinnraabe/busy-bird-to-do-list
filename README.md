@@ -32,23 +32,6 @@ This is a to do list with the ability to add and edit notes, add due date, and a
 
 ===============================
 
-# Instructions
-FIRST: create a database named `weekend-to-do-app` and use the query in the `database.sql` file to populate it.
-
-SECOND: You'll need to run all of these commands in terminal to start:
-  - npm install pg
-  - npm install express
-
-  - npm install @mui/material @emotion/react @emotion/styled
-  - npm install @fontsource/roboto
-  - npm install @mui/icons-material
-
-Finally:
-  - npm run server
-  - npm run client
-
-===============================
-
 Here is a summary of the planning that went into this:
 
   ### To Do List To Do List
@@ -63,8 +46,8 @@ Here is a summary of the planning that went into this:
     - ✅ Add input to allow different colors for organization
     - ✅ Add styling (background, task colors, buttons, lots of formatting)
     - ✅ Make the list container scrollable
-    - ✅ Add ability to add notes to tasks (new PUT function)
-    - Add ability to change color of tasks (same PUT function?)
+    - ✅ Add ability to add notes to tasks
+    - Add ability to change color of tasks
 
 
 
